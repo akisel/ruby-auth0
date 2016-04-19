@@ -61,7 +61,7 @@ module Auth0
         # @param include_fields [boolean] if the fields specified are to be included in the result, false otherwise.
         #
         # @return [json] the user with the given user_id if exists
-        def user(user_id, fields: nil, include_fields: true)
+        def user(user_id, fields = nil, include_fields = true)
           fail Auth0::MissingUserId, 'Must supply a valid user_id' if user_id.to_s.empty?
           path = "#{users_path}/#{user_id}"
           request_params = {

@@ -13,7 +13,7 @@ module Auth0
         # @param include_fields [boolean] if the fields specified are to be included in the result, false otherwise.
         #
         # @return [json] Returns the existing connections matching the strategy.
-        def connections(strategy: nil, fields: nil, include_fields: true)
+        def connections(strategy = nil, fields = nil, include_fields = true)
           request_params = {
             strategy: strategy,
             fields: fields,
@@ -41,7 +41,7 @@ module Auth0
         # @param include_fields [boolean] if the fields specified are to be included in the result, false otherwise
         #
         # @return [json] Returns the matching connection
-        def connection(connection_id, fields: nil, include_fields: true)
+        def connection(connection_id, fields = nil, include_fields = true)
           fail Auth0::InvalidParameter, 'Must supply a valid connection id' if connection_id.to_s.empty?
           path = "#{connections_path}/#{connection_id}"
           request_params = {

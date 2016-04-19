@@ -5,7 +5,7 @@ class DummyClass
     @domain = 'test.auth0.com'
   end
 
-  %i(get post put patch delete).each do |method|
+  %w(get post put patch delete).map(&:to_sym).each do |method|
     define_method(method) do |_path, _body = {}|
       true
     end

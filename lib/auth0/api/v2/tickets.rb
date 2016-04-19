@@ -10,7 +10,7 @@ module Auth0
         # @param user_id [string] The user_id of for which the ticket is to be created
         # @param result_url [string] The user will be redirected to this endpoint once the ticket is used
         # @return [json] Returns ticket url
-        def post_email_verification(user_id, result_url: nil)
+        def post_email_verification(user_id, result_url = nil)
           if user_id.to_s.empty?
             fail Auth0::InvalidParameter, 'Must supply a valid user id to post an email verification'
           end
@@ -31,7 +31,7 @@ module Auth0
         # changed. If sending this parameter, the email is also required and the user_id is invalid
         # @param email [string] The user's email
         # @return [json] Returns ticket url
-        def post_password_change(new_password, user_id: nil, result_url: nil, connection_id: nil, email: nil)
+        def post_password_change(new_password, user_id = nil, result_url = nil, connection_id = nil, email = nil)
           if new_password.to_s.empty?
             fail Auth0::InvalidParameter, 'Must supply a valid new password to post a password-change'
           end

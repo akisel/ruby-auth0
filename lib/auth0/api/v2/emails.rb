@@ -11,7 +11,7 @@ module Auth0
         # @param include_fields [boolean] if the fields specified are to be included in the result, false otherwise.
         #
         # @return [json] Returns the existing email providers.
-        def get_provider(fields: nil, include_fields: nil)
+        def get_provider(fields = nil, include_fields = nil)
           request_params = {
             fields:           fields,
             include_fields:   include_fields

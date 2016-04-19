@@ -10,7 +10,7 @@ module Auth0
         # @param fields [string] A comma separated list of fields to include or exclude from the result.
         # @param include_fields [boolean] If the fields specified are to be included in the result, false otherwise
         # @return [json] Returns tenants settings.
-        def get_tenant_settings(fields: nil, include_fields: true)
+        def get_tenant_settings(fields = nil, include_fields = true)
           request_params = {
             fields: fields,
             include_fields: include_fields

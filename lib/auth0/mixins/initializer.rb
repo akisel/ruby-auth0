@@ -18,7 +18,7 @@ module Auth0
 
       # including initializer in top of klass
       def self.included(klass)
-        klass.send :prepend, Initializer
+        klass.send :extend, Initializer
       end
 
       private

@@ -16,7 +16,7 @@ module Auth0
         # @param stage [string]  Retrieves rules that match the execution stage (defaults to login_success)
         #
         # @return [json] Returns the existing rules.
-        def rules(enabled: nil, fields: nil, include_fields: nil, stage: nil)
+        def rules(enabled = nil, fields = nil, include_fields = nil, stage = nil)
           request_params = {
             enabled:          enabled,
             fields:           fields,
@@ -35,7 +35,7 @@ module Auth0
         # @param include_fields [boolean]  If the fields specified are to be included in the result, false otherwise
         #
         # @return [json] Returns the rule.
-        def rule(rule_id, fields: nil, include_fields: nil)
+        def rule(rule_id, fields = nil, include_fields = nil)
           fail Auth0::InvalidParameter, 'Must supply a valid rule id' if rule_id.to_s.empty?
           path = "#{rules_path}/#{rule_id}"
           request_params = {

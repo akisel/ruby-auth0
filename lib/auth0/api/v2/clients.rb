@@ -11,7 +11,7 @@ module Auth0
         # @param include_fields [boolean] if the fields specified are to be included in the result, false otherwise
         #
         # @return [json] Returns the clients applications.
-        def clients(fields: nil, include_fields: nil)
+        def clients(fields = nil, include_fields = nil)
           include_fields = true if !fields.nil? && include_fields.nil?
           request_params = {
             fields: fields,
@@ -39,7 +39,7 @@ module Auth0
         # @param fields [string] A comma separated list of fields to include or exclude from the result.
         # @param include_fields [boolean] If the fields specified are to be included in the result, false otherwise
         # @return  [json] Returns the requested client application.
-        def client(client_id, fields: nil, include_fields: nil)
+        def client(client_id, fields = nil, include_fields = nil)
           fail Auth0::MissingClientId, 'Must specify a client id' if client_id.to_s.empty?
           include_fields = true if !fields.nil? && include_fields.nil?
           request_params = {
